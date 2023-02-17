@@ -1,0 +1,4 @@
+[submodule "babycat"]
+	path = babycat
+	url = https://github.com/babycat-io/babycat
+	shallow = true

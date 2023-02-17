@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  bench:
+    build:
+      context: .
+      args:
+        RUST_VERSION: 1.67.1
+        PYTHON_VERSION: 3.10.10
+        MATURIN_VERSION: 0.12.11
+  manylinux:
+    build:
+      context: .
+      dockerfile: manylinux.Dockerfile
+      args:
+        RUST_VERSION: 1.67.1
+        MATURIN_VERSION: 0.12.11
