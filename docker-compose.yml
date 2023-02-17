@@ -2,16 +2,16 @@ version: "3.9"
 
 services:
   bench:
+    image: jamesmishra.com/babycat
     build:
       context: .
       args:
         RUST_VERSION: 1.67.1
         PYTHON_VERSION: 3.10.10
-        MATURIN_VERSION: 0.12.11
-  manylinux:
-    build:
-      context: .
-      dockerfile: manylinux.Dockerfile
-      args:
-        RUST_VERSION: 1.67.1
-        MATURIN_VERSION: 0.12.11
+        MATURIN_VERSION: 0.14.3
+
+  jupyter:
+    image: jamesmishra.com/babycat
+    command: jupyter-lab --no-browser --ip=0.0.0.0 --port=8888
+    ports:
+      - 8888:8888
