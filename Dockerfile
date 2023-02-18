@@ -44,14 +44,15 @@ RUN \
         pip \
     && python3 -m pip --no-cache-dir install \
         psutil==5.9.4 \
+        jupyterlab==3.6.1 \
+        matplotlib==3.7.0 \
         maturin==${MATURIN_VERSION}
 
 # Install competing audio libraries.
 RUN python3 -m pip --no-cache-dir install \
     pedalboard==0.7.0 \
     librosa==0.9.2 \
-    pydub==0.25.1 \
-    jupyterlab==3.6.1
+    pydub==0.25.1
 
 # Compile Babycat.
 COPY babycat babycat

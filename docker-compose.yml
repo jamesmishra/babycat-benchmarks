@@ -12,6 +12,17 @@ services:
 
   jupyter:
     image: jamesmishra.com/babycat
-    command: jupyter-lab --no-browser --ip=0.0.0.0 --port=8888
+    entrypoint: jupyter-lab
+    command:
+      - --no-browser
+      - --ip=0.0.0.0
+      - --port=8888
+      - --allow-root
+    user: root
+    environment:
+      JUPYTER_TOKEN: changeme
     ports:
       - 8888:8888
+    volumes:
+      - ./notebooks:/notebooks
+    working_dir: /notebooks
